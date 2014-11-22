@@ -25,10 +25,12 @@ Route::get('/map', 'HomeController@map');
 
 Route::post('/user', 'UserController@userCheck');
 
-Route::get('/ubike/get', 'UbikeController@getUbike');
+// Route::get('/ubike', 'UbikeController@dataGet', function($result_array)
+// {
+// 	return $result_array;
+// });
 
-Route::get('/ubike', 'UbikeController@dataGet', function($result_array)
-{
-	return $result_array;
-});
+
+Route::resource('/ubike', 'UbikeController', array('only' => array('index', 'show')));
+// Route::get('/ubike/get', 'UbikeController@getUbike');
 
