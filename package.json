@@ -1,0 +1,31 @@
+{
+  "name": "ubikeForecast",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework) [![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework) [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "",
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.0",
+    "gulp-browserify": "^0.5.0",
+    "gulp-livereload": "^2.1.1",
+    "gulp-livescript": "^2.0.0",
+    "gulp-load-plugins": "^0.7.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "^3.0.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Negaihoshi/iso27001/issues"
+  },
+  "homepage": "https://github.com/Negaihoshi/iso27001",
+  "dependencies": {
+    "gulp-coffee": "^2.2.0"
+  }
+}
