@@ -15,9 +15,33 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index()
 	{
-		return View::make('hello');
+		$stationList = array();
+
+		$tt = [
+			"tt" => "mm",
+			"kk" => "kk",
+			"dd" => "dd"
+		];
+
+		array_push($stationList, $tt);
+		array_push($stationList, $tt);
+		array_push($stationList, $tt);
+		array_push($stationList, $tt);
+		var_dump($stationList);
+
+		$returnObj = [
+			'stationList' => $stationList
+		];
+
+    	return View::make('main.list', $returnObj);
 	}
+
+	public function map()
+	{
+    	return View::make('main.map');
+	}
+
 
 }
