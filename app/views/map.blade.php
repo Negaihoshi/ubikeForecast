@@ -30,53 +30,70 @@
   <script>
   var map = $('#map');
   var r = 0;
-
-  map.tinyMap({
-    'center': ['25.041904178378704', '121.55848503112793'],
-    'zoom': 14,
-    'marker': [
-    {
-      'addr': ['25.041904178378704', '121.55848503112793'],
-      'icon': {
-        'url': '',
-        'path': 'M0-165c-27.618 0-50 21.966-50 49.054C-50-88.849 0 0 0 0s50-88.849 50-115.946C50-143.034 27.605-165 0-165z',
-        'fillColor': '#0E77E9',
-        'fillOpacity': 1,
-        'strokeColor': '',
-        'strokeWeight': 0,
-        'scale': 1/5,
-        'rotation': 0
-      },
-      'id': 'A'
-    }
-    ]
-  });
-
-
-  $('#a').on('click', function () {
-    r += 90;
-    if (r >= 360) {
-      r = 0;
-    }
-    map.tinyMap('modify', {
-      'marker': [
+  var geo = window.navigator.geolocation;
+  geo.getCurrentPosition(geoSuccess, geoError);
+  function geoError(event) {
+    alert('請開啓定位功能');
+  }
+  function geoSuccess(event) {
+    var l = event.coords.latitude;
+    var y = event.coords.longitude;
+    var center = ""+l+","+y;
+    var myLocationMarker= {
+      "marker":[
+        {
+          addr: center,
+          text: '我的位置',
+          icon: {
+            url: 'http://www.clker.com/cliparts/e/B/I/t/W/u/pushed-pin-hi.png',
+            scaledSize: new google.maps.Size(64, 64)
+          },
+          animation: 'DROP|BOUNCE'
+        }
+      ]
+    };
+    var ubikeLocation= {
+      "marker":[
       {
-        'addr': ['25.041904178378704', '121.55848503112793'],
-        'icon': {
-          'url': '',
-          'path': 'M0-165c-27.618 0-50 21.966-50 49.054C-50-88.849 0 0 0 0s50-88.849 50-115.946C50-143.034 27.605-165 0-165z',
-          'fillColor': '#0E77E9',
-          'fillOpacity': 1,
-          'strokeColor': '',
-          'strokeWeight': 0,
-          'scale': 1/5,
-          'rotation': r,
+        addr: "臺北市政府",
+        text: '測試站點1',
+        icon: {
+          url: 'pin_pic/full.png',
+          scaledSize: new google.maps.Size(64, 64)
         },
-        'id': 'A'
+        animation: 'DROP|BOUNCE'
+      },
+      {
+        addr: "大安捷運站",
+        text: '測2試站點',
+        icon: {
+          url: 'pin_pic/34.png',
+          scaledSize: new google.maps.Size(64, 64)
+        },
+        animation: 'DROP|BOUNCE'
+      },
+      {
+        addr: "捷運科技大樓站",
+        text: '測試站點3',
+        icon: {
+          url: 'pin_pic/empty.png',
+          scaledSize: new google.maps.Size(64, 64)
+        },
+        animation: 'DROP|BOUNCE'
       }
       ]
-    });
+    };
+    map.tinyMap("panto",center);
+    map.tinyMap("modify",myLocationMarker);
+    map.tinyMap("modify",ubikeLocation);
+  }
+
+  map.tinyMap({
+    // 'center': ['30.041904178378704', '121.55848503112793'],
+    'autoLocation': true,
+    'zoom': 14
   });
+
 
 </script>
 </body>
