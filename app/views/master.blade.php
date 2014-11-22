@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="/css/custom.css" rel="stylesheet" type="text/css" />
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -10,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Ubike 預報</title>
   </head>
-  <body>
+  <body class="sun">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -22,13 +23,14 @@
           </button>
           <a class="navbar-brand" href="#">Ubike 預報</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+<!--         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
+ -->        <!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container">

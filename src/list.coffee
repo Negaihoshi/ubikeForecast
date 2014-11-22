@@ -1,6 +1,19 @@
 $("tr").on "click", (e) ->
-  # if $("#show").hasClass("in")
-  $("#percentage").html ($(this).attr("key") + "%")
-  $("#station").html $(this).attr("name")
-  # else
-    # $("#show").addClass "in"
+  percentage = $(this).attr("percentage") * 30 # * 30 is temp
+  unless isNaN percentage
+    $("#percentage").html (percentage + "%")
+    $("#station").html $(this).attr("name")
+    img = $('img')
+    body = $('body')
+
+    type = "sun"
+    type = "rainy" if percentage >= 0 and percentage < 34
+    type = "cloud" if percentage >= 34 and percentage < 67
+    img.attr "src", "/img/sm_"+type+".png"
+
+    body.removeClass("rainy")
+    body.removeClass("cloud")
+    body.removeClass("sun")
+    body.addClass(type)
+
+

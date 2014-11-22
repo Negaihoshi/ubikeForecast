@@ -13,26 +13,19 @@ th {
 }
 
 #img{
-  /*border: 1px solid #000;*/
   float: left;
   width: 40%;
   text-align: right;
 }
-img {
-  width: 200px;
-  height: 200px;
+
+.starter-template {
+  padding: 5%;
+  text-align: center;
 }
 
 #show {
-  height: 250px;
-  position: relative;
+  min-height: 600px;
   padding: 2%;
-  z-index: 2;
-}
-
-.starter-template {
-  padding: 40px;
-  text-align: center;
 }
 
 #word {
@@ -52,9 +45,10 @@ img {
   left: 30%;
 }
 
-.table {
-  /*float: clear;*/
+.pannel-body{
+  margin-bottom: 20px;
+}
+
+.clear {
   clear: both;
-  position: relative;
-  z-index: 1;
 }
