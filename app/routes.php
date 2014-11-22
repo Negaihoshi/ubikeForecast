@@ -16,4 +16,9 @@ Route::get('/', function()
 	return View::make('index');
 });
 
+Route::get('/map', function()
+{
+	return View::make('map');
+});
+
 Route::post('/user', 'UserController@userCheck');

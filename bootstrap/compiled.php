@@ -476,7 +476,7 @@ class Application extends Container implements HttpKernelInterface, TerminableIn
     }
     public static function getBootstrapFile()
     {
-        return '/Users/negaihoshi/ubikeForecast/vendor/laravel/framework/src/Illuminate/Foundation' . '/start.php';
+        return '/Users/Vincent/ubikeForecast/vendor/laravel/framework/src/Illuminate/Foundation' . '/start.php';
     }
     public function startExceptionHandling()
     {
@@ -2701,9 +2701,6 @@ namespace Symfony\Component\Debug;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\Debug\Exception\OutOfMemoryException;
-if (!defined('ENT_SUBSTITUTE')) {
-    define('ENT_SUBSTITUTE', 8);
-}
 class ExceptionHandler
 {
     private $debug;
@@ -2905,6 +2902,11 @@ class ExceptionHandler
     }
     private function formatArgs(array $args)
     {
+        if (PHP_VERSION_ID >= 50400) {
+            $flags = ENT_QUOTES | ENT_SUBSTITUTE;
+        } else {
+            $flags = ENT_QUOTES;
+        }
         $result = array();
         foreach ($args as $key => $item) {
             if ('object' === $item[0]) {
@@ -2912,7 +2914,7 @@ class ExceptionHandler
             } elseif ('array' === $item[0]) {
                 $formattedValue = sprintf('<em>array</em>(%s)', is_array($item[1]) ? $this->formatArgs($item[1]) : $item[1]);
             } elseif ('string' === $item[0]) {
-                $formattedValue = sprintf('\'%s\'', htmlspecialchars($item[1], ENT_QUOTES | ENT_SUBSTITUTE, $this->charset));
+                $formattedValue = sprintf('\'%s\'', htmlspecialchars($item[1], $flags, $this->charset));
             } elseif ('null' === $item[0]) {
                 $formattedValue = '<em>null</em>';
             } elseif ('boolean' === $item[0]) {
@@ -2921,7 +2923,7 @@ class ExceptionHandler
                 $formattedValue = '<em>resource</em>';
             } else {
                 $formattedValue = str_replace('
-', '', var_export(htmlspecialchars((string) $item[1], ENT_QUOTES | ENT_SUBSTITUTE, $this->charset), true));
+', '', var_export(htmlspecialchars((string) $item[1], $flags, $this->charset), true));
             }
             $result[] = is_int($key) ? $formattedValue : sprintf('\'%s\' => %s', $key, $formattedValue);
         }
@@ -3621,7 +3623,7 @@ class ErrorHandler
                 if (self::$stackedErrorLevels) {
                     self::$stackedErrors[] = func_get_args();
                 } else {
-                    if (version_compare(PHP_VERSION, '5.4', '<')) {
+                    if (PHP_VERSION_ID < 50400) {
                         $stack = array_map(function ($row) {
                             unset($row['args']);
                             return $row;
@@ -9974,7 +9976,6 @@ class Response
             fastcgi_finish_request();
         } elseif ('cli' !== PHP_SAPI) {
             static::closeOutputBuffers(0, true);
-            flush();
         }
         return $this;
     }
