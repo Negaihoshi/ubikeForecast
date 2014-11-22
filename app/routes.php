@@ -17,3 +17,4 @@ Route::get('/', function()
 });
 
 Route::post('/user', 'UserController@userCheck');
+Route::get('/ubike/get', 'UbikeController@getUbike');
