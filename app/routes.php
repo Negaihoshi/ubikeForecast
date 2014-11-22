@@ -18,6 +18,7 @@ Route::get('/', function()
 });
 
 
+
 Route::get('/list', 'HomeController@index');
 
 Route::get('/map', 'HomeController@map');
@@ -25,3 +26,9 @@ Route::get('/map', 'HomeController@map');
 Route::post('/user', 'UserController@userCheck');
 
 Route::get('/ubike/get', 'UbikeController@getUbike');
+
+Route::get('/ubike', 'UbikeController@dataGet', function($result_array)
+{
+	return $result_array;
+});
+

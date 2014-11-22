@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'iso27001',
+			'database'  => 'Ubike',
 			'username'  => 'root',
 			'password'  => 'mysql',
 			'charset'   => 'utf8',
