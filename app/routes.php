@@ -11,9 +11,17 @@
 |
 */
 
+
 Route::get('/', function()
 {
-	return View::make('index');
+    return View::make('index');
 });
 
+
+Route::get('/list', 'HomeController@index');
+
+Route::get('/map', 'HomeController@map');
+
 Route::post('/user', 'UserController@userCheck');
+
+
