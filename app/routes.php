@@ -24,4 +24,5 @@ Route::get('/map', 'HomeController@map');
 
 Route::post('/user', 'UserController@userCheck');
 
-Route::get('/ubike/get', 'UbikeController@getUbike');
+Route::resource('/ubike', 'UbikeController', array('only' => array('index', 'show')));
+// Route::get('/ubike/get', 'UbikeController@getUbike');
