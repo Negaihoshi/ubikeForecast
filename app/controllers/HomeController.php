@@ -29,7 +29,6 @@ class HomeController extends BaseController {
 		array_push($stationList, $tt);
 		array_push($stationList, $tt);
 		array_push($stationList, $tt);
-		var_dump($stationList);
 
 		$returnObj = [
 			'stationList' => $stationList
