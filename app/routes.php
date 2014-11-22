@@ -20,7 +20,12 @@ Route::get('/', function()
 
 Route::get('/list', 'HomeController@index');
 
-Route::get('/map', 'HomeController@map');
+Route::get('/map1', 'HomeController@map');
+
+Route::get('/map', function()
+{
+	return View::make('map');
+});
 
 Route::post('/user', 'UserController@userCheck');
 
