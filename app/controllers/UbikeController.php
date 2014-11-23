@@ -23,12 +23,19 @@ class UbikeController extends BaseController {
     curl_close($ch);
     return $returnList;
   }
+
 	public function store(){
 
+    $stations = DB::table('Station');
+
+    if($stations === null) {
+      App::make('UbikeController')->storeStation();
+    }
+
 		App::make('UbikeController')->storeUbike();
-		App::make('UbikeController')->storeStation();
 
 	}
+
   public function storeUbike(){
 
     $ubikeList = App::make('UbikeController')->index();
@@ -56,8 +63,7 @@ class UbikeController extends BaseController {
 
     foreach ($ubikeList as $ubikeObj) {
 
-
-      $station = DB::table('Station')->where('stationNo', 'John')->first();
+      $station = Station::find(array('stationNo' => $ubikeObj->sno))->first();
 
       if ($station  === null) {
         $station = new Station;

@@ -17,28 +17,26 @@
         <thead>
           <tr>
             <th>id</th>
-            <th>area</th>
-            <th>name</th>
-            <th>ubike</th>
-            <th>percentage</th>
+            <th>區域</th>
+            <th>站名</th>
+            <th>剩餘/總數</th>
+            <th>百分比</th>
           </tr>
         </thead>
         <tbody>
           @foreach($stations as $key => $station)
-            <?php
-              $percentage2 = $ubikes[$key]['remainBikes'] / $station['totalBikes'];
-              if($percentage2 > 0.67) $percentage = 1;
-              else if($percentage2 > 0.34) $percentage = 2;
-              else $percentage = 3
-            ?>
+          <?php
+            $percentage = $ubikes[$key]['remainBikes'] / $station['totalBikes'] * 100;
+            $percentage = number_format($percentage, 2);
 
+          ?>
 
-            <tr key="{{$key}}" name="{{ $station['stationName']}} " percentage="{{ $percentage2 }}">
+            <tr key="{{$key}}" name="{{ $station['stationName']}} " percentage="{{ $percentage }}">
               <td> {{ $key+1 }} </td>
               <td> {{ $station['stationArea'] }} </td>
               <td> {{ $station['stationName']}} </td>
               <td> {{ $ubikes[$key]['remainBikes']."/".$station['totalBikes']}} </td>
-              <td> {{ $ubikes[$key]['remainBikes'] / $station['totalBikes'] }} </td>
+              <td> {{ $percentage . "%"}} </td>
             </tr>
           @endforeach
 

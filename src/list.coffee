@@ -1,6 +1,5 @@
 $("tr").on "click", (e) ->
-  percentage = $(this).attr("key") * 30 # this is temp for init data
-  # percentage = $(this).attr("percentage")  #this is ture
+  percentage = $(this).attr("percentage")
   unless isNaN percentage
     $("#percentage").html (percentage + "%")
     $("#station").html $(this).attr("name")
