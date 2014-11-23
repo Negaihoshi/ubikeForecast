@@ -23,6 +23,7 @@ class UbikeController extends BaseController {
     curl_close($ch);
     return $temp;
   }
+
   public function store(){
     // $ublikeList = file_get_contents("ubike/get");
     // $uri = Request::path("/ubike/index");
@@ -56,5 +57,35 @@ class UbikeController extends BaseController {
       $ubike->save();
     }
   }
+
+  public function storeStation(){
+
+    $ubikeList = App::make('UbikeController')->index();
+
+    $ubikeList = json_decode($ubikeList);
+    $ubikeList = $ubikeList->retVal;
+
+    foreach ($ubikeList as $ublikeObj) {
+
+
+      $station = DB::table('station')->where('stationNo', 'John')->first();
+
+      if ($station  === null) {
+        $station = new Station;
+      }
+
+      $station->active = $ublikeObj->sv;
+      $station->longitude = $ublikeObj->lat;
+      $station->latitude = $ublikeObj->lng;
+      $station->stationNo = $ublikeObj->sno;
+      $station->stationName = $ublikeObj->sna;
+      $station->stationLocation = $ublikeObj->ar;
+      $station->totalBikes = $ublikeObj->tot;
+      $station->save();
+
+
+    }
+  }
+
 
 }

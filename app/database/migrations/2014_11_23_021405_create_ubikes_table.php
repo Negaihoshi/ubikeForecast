@@ -15,19 +15,10 @@ class CreateUbikesTable extends Migration {
 		Schema::create('Ubike', function(Blueprint $table)
 		{
 			// Auto increment
-			$table->increments('Id');
-
-			$table->string('stationNo');
+			$table->increments('id');
 			$table->boolean('active');
-			$table->string('stationName');
-			$table->string('stationLocation');
-
-			$table->integer('totalBikes');
-
 			$table->integer('remainBikes');
-
-			$table->string('longitude');
-			$table->string('latitude');
+			$table->string('stationNo');
 
 			// 時間戳記 created_at & updated_at
 			$table->timestamps();
