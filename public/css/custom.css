@@ -11,6 +11,11 @@ body.sun {
   color: #000;
 }
 
+.sun .navbar-inverse .navbar-nav>li>a {
+  color: #000;
+}
+
+
 .sun th {
   background-color: #A1D46F;
 }
@@ -30,6 +35,11 @@ body.cloud {
   color: #fff;
 }
 
+.cloud .navbar-inverse .navbar-nav>li>a {
+  color: #fff;
+}
+
+
 .cloud th {
   background-color: #61A1E9;
 }
@@ -46,6 +56,11 @@ body.rainy {
 .rainy .navbar-inverse .navbar-brand {
   color: #9d9d9d;
 }
+
+.rainy .navbar-inverse .navbar-nav>li>a {
+  color: #9d9d9d;
+}
+
 
 .rainy th {
   background-color: #000;

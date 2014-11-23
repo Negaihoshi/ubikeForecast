@@ -3,7 +3,6 @@
 @section('content')
 
   <div class="splash-container">
-    Map View TEST
     <div id="map"></div>
 
   </div>
