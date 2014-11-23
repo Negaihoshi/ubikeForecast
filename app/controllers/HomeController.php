@@ -18,6 +18,12 @@ class HomeController extends BaseController {
 	public function index()
 	{
 		$stationList = array();
+		// $ubikes = DB::table('Ubike')->paginate(15);
+		// echo $ubikes;
+
+		// $Ubikes = Ubike::paginate(15);
+		// echo $Ubikes;
+
 
 		$tt = [
 			"name" => "Hello",
@@ -33,7 +39,10 @@ class HomeController extends BaseController {
 			'stationList' => $stationList
 		];
 
-    	return View::make('home.list', $returnObj);
+    	return View::make('home.list', [
+				'stations'=> Station::paginate(15),
+				'ubikes'=> Ubike::paginate(15)
+			]);
 	}
 
 	public function map()

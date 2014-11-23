@@ -21,6 +21,7 @@ class AddVotesToUserTable extends Migration {
 			$table->string('longitude');
 			$table->string('stationNo');
 			$table->string('stationName');
+			$table->string('stationArea');
 			$table->string('stationLocation');
 			$table->integer('totalBikes');
 			$table->timestamps();

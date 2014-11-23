@@ -17,20 +17,37 @@
         <thead>
           <tr>
             <th>id</th>
+            <th>area</th>
             <th>name</th>
+            <th>ubike</th>
             <th>percentage</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($stationList as $key => $station)
-            <tr key="{{$key}}" name="{{ $station['name']}} " percentage="{{$station['percentage']}}">
-              <td> {{ $key }} </td>
-              <td> {{ $station['name']}} </td>
-              <td> {{ $station['percentage']}} </td>
+          @foreach($stations as $key => $station)
+            <?php
+              $percentage2 = $ubikes[$key]['remainBikes'] / $station['totalBikes'];
+              if($percentage2 > 0.67) $percentage = 1;
+              else if($percentage2 > 0.34) $percentage = 2;
+              else $percentage = 3
+            ?>
+
+
+            <tr key="{{$key}}" name="{{ $station['stationName']}} " percentage="{{ $percentage2 }}">
+              <td> {{ $key+1 }} </td>
+              <td> {{ $station['stationArea'] }} </td>
+              <td> {{ $station['stationName']}} </td>
+              <td> {{ $ubikes[$key]['remainBikes']."/".$station['totalBikes']}} </td>
+              <td> {{ $ubikes[$key]['remainBikes'] / $station['totalBikes'] }} </td>
             </tr>
           @endforeach
+
         </tbody>
+        <tfoot>
+
+        </tfoot>
       </table>
+      {{ $stations->links(); }}
     </div>
   </div>
 
