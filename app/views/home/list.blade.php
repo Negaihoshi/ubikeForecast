@@ -16,7 +16,6 @@
       <table id="tb-border">
         <thead>
           <tr>
-            <th>id</th>
             <th>區域</th>
             <th>站名</th>
             <th>剩餘/總數</th>
@@ -32,7 +31,6 @@
           ?>
 
             <tr key="{{$key}}" name="{{ $station['stationName']}} " percentage="{{ $percentage }}">
-              <td> {{ $key+1 }} </td>
               <td> {{ $station['stationArea'] }} </td>
               <td> {{ $station['stationName']}} </td>
               <td> {{ $ubikes[$key]['remainBikes']."/".$station['totalBikes']}} </td>
