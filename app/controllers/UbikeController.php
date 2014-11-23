@@ -68,7 +68,7 @@ class UbikeController extends BaseController {
     foreach ($ubikeList as $ublikeObj) {
 
 
-      $station = DB::table('station')->where('stationNo', 'John')->first();
+      $station = DB::table('Station')->where('stationNo', 'John')->first();
 
       if ($station  === null) {
         $station = new Station;
