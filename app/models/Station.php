@@ -23,5 +23,8 @@ class Station extends Eloquent {
      * @var array
      */
     //protected $hidden = array('password', 'remember_token');
-
+    public function scopeSearchUbike($query)
+    {
+      return $query->where('stationName', 'like', '%$query%');
+    }
 }

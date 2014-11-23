@@ -16,6 +16,8 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/map', 'HomeController@map');
 
+Route::get('/search', 'HomeController@search');
+
 Route::post('/user', 'UserController@userCheck');
 
 
@@ -30,4 +32,3 @@ Route::post('/user', 'UserController@userCheck');
 Route::get('/ubike/index', 'UbikeController@index');
 Route::get('/storeStation', 'UbikeController@storeStation');
 Route::get('/store', 'UbikeController@store');
-
