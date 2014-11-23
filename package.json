@@ -20,9 +20,9 @@
     "gulp-util": "^3.0.1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Negaihoshi/iso27001/issues"
+    "url": ""
   },
   "homepage": "",
   "dependencies": {
