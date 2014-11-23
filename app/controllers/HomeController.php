@@ -17,27 +17,6 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		$stationList = array();
-		// $ubikes = DB::table('Ubike')->paginate(15);
-		// echo $ubikes;
-
-		// $Ubikes = Ubike::paginate(15);
-		// echo $Ubikes;
-
-
-		$tt = [
-			"name" => "Hello",
-			"percentage" => 1,
-		];
-
-		array_push($stationList, $tt);
-		array_push($stationList, $tt);
-		array_push($stationList, $tt);
-		array_push($stationList, $tt);
-
-		$returnObj = [
-			'stationList' => $stationList
-		];
 
 		// echo DB::select('select Station.*,maxtime from Station, (select stationNo,remainBikes, max(created_at) as maxtime from Ubike group by stationNo) as Ubike WHERE (Station.stationNo = Ubike.stationNo) and (Station.stationNo = Ubike.stationNo) group by stationNo');
     	return View::make('home.list', [
@@ -48,7 +27,9 @@ class HomeController extends BaseController {
 
 	public function map()
 	{
-  	return View::make('home.map');
+		return View::make('home.map', [
+			'stations'=> DB::select('select * from Station limit 50')
+			]);
 	}
 
 	public function search()
