@@ -33,12 +33,12 @@ class HomeController extends BaseController {
 			'stationList' => $stationList
 		];
 
-    	return View::make('main.list', $returnObj);
+    	return View::make('home.list', $returnObj);
 	}
 
 	public function map()
 	{
-    	return View::make('main.map');
+    	return View::make('home.map');
 	}
 
 

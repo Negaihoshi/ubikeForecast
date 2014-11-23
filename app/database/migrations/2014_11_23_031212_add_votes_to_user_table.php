@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUbikesTable extends Migration {
+class AddVotesToUserTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,19 @@ class CreateUbikesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Ubike', function(Blueprint $table)
+		Schema::create('Station', function(Blueprint $table)
 		{
-			// Auto increment
+
 			$table->increments('id');
 			$table->boolean('active');
-			$table->integer('remainBikes');
+			$table->string('latitude');
+			$table->string('longitude');
 			$table->string('stationNo');
-
-			// 時間戳記 created_at & updated_at
+			$table->string('stationName');
+			$table->string('stationLocation');
+			$table->integer('totalBikes');
 			$table->timestamps();
+
 		});
 	}
 
@@ -32,7 +35,6 @@ class CreateUbikesTable extends Migration {
 	 */
 	public function down()
 	{
-		//
 	}
 
 }

@@ -27,13 +27,13 @@ class UbikeTableSeeder extends Seeder {
 				DB::table('Ubike')->truncate();
 				//insert some dummy records
 				DB::table('Ubike')->insert(array(
-						array('ItemId'=>'john', 'Total_bikes'=>'20', 'Remain_bikes' => $now, 'updated_at' => $now),
-						array('ItemId'=>'mark', 'Total_bikes'=>'14', 'Remain_bikes' => $now, 'updated_at' => $now),
-						array('ItemId'=>'marl', 'Total_bikes'=>'36', 'Remain_bikes' => $now, 'updated_at' => $now),
-						array('ItemId'=>'Karl', 'Total_bikes'=>'15', 'Remain_bikes' => $now, 'updated_at' => $now),
-						array('ItemId'=>'mary', 'Total_bikes'=>'20', 'Remain_bikes' => $now, 'updated_at' => $now),
-						array('ItemId'=>'sels', 'Total_bikes'=>'17', 'Remain_bikes' => $now, 'updated_at' => $now),
-						array('ItemId'=>'taylor', 'Total_bikes'=>'22', 'Remain_bikes' => $now, 'updated_at' => $now)
+						array('active'=>'1','remainBikes'=>'10','stationNo'=>'0002','updated_at'=> $now),
+						array('active'=>'1','remainBikes'=>'10','stationNo'=>'0005','updated_at'=> $now),
+						array('active'=>'0','remainBikes'=>'10','stationNo'=>'0006','updated_at'=> $now),
+						array('active'=>'0','remainBikes'=>'10','stationNo'=>'0003','updated_at'=> $now),
+						array('active'=>'1','remainBikes'=>'10','stationNo'=>'0001','updated_at'=> $now),
+						array('active'=>'0','remainBikes'=>'10','stationNo'=>'0008','updated_at'=> $now),
+						array('active'=>'1','remainBikes'=>'10','stationNo'=>'0004','updated_at'=> $now)
 
 					));
 			}

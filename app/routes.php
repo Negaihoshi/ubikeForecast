@@ -12,14 +12,7 @@
 */
 
 
-Route::get('/', function()
-{
-    return View::make('index');
-});
-
-
-
-Route::get('/list', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('/map', 'HomeController@map');
 
@@ -35,4 +28,6 @@ Route::post('/user', 'UserController@userCheck');
 
 // Route::resource('/ubike', 'UbikeController', array('only' => array('index', 'show')));
 Route::get('/ubike/index', 'UbikeController@index');
+Route::get('/storeStation', 'UbikeController@storeStation');
 Route::get('/store', 'UbikeController@store');
+
