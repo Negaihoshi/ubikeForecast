@@ -11,4 +11,4 @@
 |
 */
 
-Artisan::add(new getUbike);
+Artisan::add(new uBikeRefresh);

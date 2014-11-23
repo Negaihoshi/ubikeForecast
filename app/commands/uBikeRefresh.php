@@ -1,26 +1,24 @@
 <?php
 
-use Indatus\Dispatcher\Scheduling\ScheduledCommand;
-use Indatus\Dispatcher\Scheduling\Schedulable;
-use Indatus\Dispatcher\Drivers\Cron\Scheduler;
+use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class getUbike extends ScheduledCommand {
+class uBikeRefresh extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'command:name';
+	protected $name = 'command:uBikeRefresh';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Command description.';
+	protected $description = 'Command uBikeRefresh.';
 
 	/**
 	 * Create a new command instance.
@@ -30,19 +28,6 @@ class getUbike extends ScheduledCommand {
 	public function __construct()
 	{
 		parent::__construct();
-	}
-
-	/**
-	 * When a command should run
-	 *
-	 * @param Scheduler $scheduler
-	 * @return \Indatus\Dispatcher\Scheduling\Schedulable
-	 */
-	public function schedule(Schedulable $scheduler)
-	{
-		// return $scheduler;
-		return $scheduler->daily()->hours(0)->minutes(1);
-
 	}
 
 	/**
