@@ -2,13 +2,14 @@
 
 @section('content')
 
-
   <div class="splash-container">
     Map View TEST
     <div id="map"></div>
 
   </div>
   <script>
+  var stations = JSON.parse( '<?php echo json_encode($stations, JSON_FORCE_OBJECT) ?>' );
+
   var map = $('#map');
   var r = 0;
   var geo = window.navigator.geolocation;
@@ -36,34 +37,33 @@
     var ubikeLocation= {
       "marker":[
       {
-        addr: "臺北市政府",
-        text: '測試站點1',
+        addr: ['25.037467', '121.564077'],
+        text: '25.0408578889',
         icon: {
           url: 'pin_pic/full.png',
-          scaledSize: new google.maps.Size(64, 64)
-        },
-        animation: 'DROP|BOUNCE'
-      },
-      {
-        addr: "大安捷運站",
-        text: '測2試站點',
-        icon: {
-          url: 'pin_pic/34.png',
-          scaledSize: new google.maps.Size(64, 64)
-        },
-        animation: 'DROP|BOUNCE'
-      },
-      {
-        addr: "捷運科技大樓站",
-        text: '測試站點3',
-        icon: {
-          url: 'pin_pic/empty.png',
           scaledSize: new google.maps.Size(64, 64)
         },
         animation: 'DROP|BOUNCE'
       }
       ]
     };
+    // alert(stations;
+
+    for (key in stations) {
+      var station = stations[key];
+      var addr = [station.longitude, station.latitude];
+      var mark = {
+        addr: addr,
+        text: station.stationName,
+        icon: {
+          url: 'pin_pic/empty.png',
+          scaledSize: new google.maps.Size(64, 64)
+        }
+      }
+      ubikeLocation.marker.push(mark);
+    }
+    console.log("stationsstationsstations",ubikeLocation);
+
     map.tinyMap("panto",center);
     map.tinyMap("modify",myLocationMarker);
     map.tinyMap("modify",ubikeLocation);

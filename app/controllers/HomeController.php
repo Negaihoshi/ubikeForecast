@@ -17,27 +17,6 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		$stationList = array();
-		// $ubikes = DB::table('Ubike')->paginate(15);
-		// echo $ubikes;
-
-		// $Ubikes = Ubike::paginate(15);
-		// echo $Ubikes;
-
-
-		$tt = [
-			"name" => "Hello",
-			"percentage" => 1,
-		];
-
-		array_push($stationList, $tt);
-		array_push($stationList, $tt);
-		array_push($stationList, $tt);
-		array_push($stationList, $tt);
-
-		$returnObj = [
-			'stationList' => $stationList
-		];
 
     	return View::make('home.list', [
 				'stations'=> Station::paginate(15),
@@ -47,7 +26,9 @@ class HomeController extends BaseController {
 
 	public function map()
 	{
-    	return View::make('home.map');
+		return View::make('home.map', [
+			'stations'=> DB::select('select * from Station limit 50')
+			]);
 	}
 
 
