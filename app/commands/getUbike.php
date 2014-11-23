@@ -52,20 +52,7 @@ class getUbike extends ScheduledCommand {
 	 */
 	public function fire()
 	{
-		$ublikeList = Request::path("/ubike/index");
-		$ublikeList = json_encod($ublikeList);
-		$ublikeList = $ublikeList->retVal;
-		foreach ($ublikeList as $ublikeObj) {
-			$ubike = new Ubike;
-
-			$ubike->ItemId = $ublikeObj->iid;
-			$ubike->Total_bikes = $ublikeObj->tot;
-			$ubike->Remain_bikes = $ublikeObj->sbi;
-
-			$ubike->save();
-		}
-
-
+		App::make('UbikeController')->store();
 	}
 
 	/**

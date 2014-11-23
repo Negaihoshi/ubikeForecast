@@ -18,35 +18,43 @@ class UbikeController extends BaseController {
   public function index(){
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "http://opendata.dot.taipei.gov.tw/opendata/gwjs_cityhall.json");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
     $temp = curl_exec($ch);
     curl_close($ch);
     return $temp;
   }
-  public function show(){
+  public function store(){
     // $ublikeList = file_get_contents("ubike/get");
     // $uri = Request::path("/ubike/index");
     // return $uri;
     // return $ublikeList;
 
     $ubikeList = App::make('UbikeController')->index();
-    $ubikeList = json_decode($ubikeList);
-    if(is_object($ubikeList)){
-      echo "這個是物件";
-    }
 
-    // $ubikeList = ;
+    $ubikeList = json_decode($ubikeList);
+    $ubikeList = $ubikeList->retVal;
+    // var_dump($ubikeList);
+
     // echo var_dump($ubikeList);
 
     // echo $ubikeList;
-    // foreach ($ubikeList as $ublikeObj) {
-    //   $ubike = new Ubike;
-    //
-    //   $ubike->ItemId = $ublikeObj->iid;
-    //   $ubike->Total_bikes = $ublikeObj->tot;
-    //   $ubike->Remain_bikes = $ublikeObj->sbi;
-    //
-    //   $ubike->save();
-    // }
+    foreach ($ubikeList as $ublikeObj) {
+      $ubike = new Ubike;
+
+			$ubike->stationNo = $ublikeObj->sno;
+			$ubike->active = $ublikeObj->sv;
+			$ubike->stationName = $ublikeObj->sna;
+			$ubike->stationLocation = $ublikeObj->ar;
+
+			$ubike->totalBikes = $ublikeObj->tot;
+
+			$ubike->remainBikes = $ublikeObj->sbi;
+
+			$ubike->longitude = $ublikeObj->lat;
+			$ubike->latitude = $ublikeObj->lng;
+
+      $ubike->save();
+    }
   }
 
 }

@@ -54,7 +54,8 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => '127.0.0.1',
+			// 'unix_socket'   => '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock',
 			'database'  => 'Ubike',
 			'username'  => 'root',
 			'password'  => 'mysql',
