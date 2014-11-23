@@ -20,9 +20,8 @@ class HomeController extends BaseController {
 		$stationList = array();
 
 		$tt = [
-			"tt" => "mm",
-			"kk" => "kk",
-			"dd" => "dd"
+			"name" => "Hello",
+			"percentage" => 1,
 		];
 
 		array_push($stationList, $tt);

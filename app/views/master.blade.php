@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link href="/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="/css/table.css" rel="stylesheet" type="text/css" />
     <link href="/css/custom.css" rel="stylesheet" type="text/css" />
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

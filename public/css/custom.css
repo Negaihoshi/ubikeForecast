@@ -11,6 +11,11 @@ body.sun {
   color: #000;
 }
 
+.sun th {
+  background-color: #A1D46F;
+}
+
+
 body.cloud {
   background-color: #C8E2F4;
 }
@@ -25,6 +30,10 @@ body.cloud {
   color: #fff;
 }
 
+.cloud th {
+  background-color: #61A1E9;
+}
+
 body.rainy {
   background-color: #ccc;
 }
@@ -36,4 +45,8 @@ body.rainy {
 
 .rainy .navbar-inverse .navbar-brand {
   color: #9d9d9d;
+}
+
+.rainy th {
+  background-color: #000;
 }

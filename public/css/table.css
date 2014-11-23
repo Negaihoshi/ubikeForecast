@@ -1,0 +1,31 @@
+#tb-border {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px;
+}
+#tb-border caption {
+  font-family: "Century Gothic";
+  font-size: 16px;
+  color: #678240;
+  padding: 2px;
+  margin: 0px;
+}
+#tb-border th {
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  margin: 0px;
+  /*background-color: #678240;*/
+}
+#tb-border td {
+  font-family: "Arial";
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+  padding: 5px;
+  margin: 0px;
+  background-color: #fff;
+  border-bottom: 1px solid  #bbb;
+}
