@@ -16,4 +16,5 @@ $("tr").on "click", (e) ->
     body.removeClass("sun")
     body.addClass(type)
 
+$('tr').eq(1).click()
 
