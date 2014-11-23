@@ -12,14 +12,7 @@
 */
 
 
-Route::get('/', function()
-{
-    return View::make('index');
-});
-
-
-
-Route::get('/list', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('/map', 'HomeController@map');
 
